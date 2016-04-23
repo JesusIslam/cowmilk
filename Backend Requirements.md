@@ -3,20 +3,20 @@ Backend is only an API service without any rendering, and should just focus on p
 
 # Technology
 - Database
-	MongoDB
+    - MongoDB
 
 - Cache
-	Redis
+    - Redis
 
 # SLA
 - Maximum response time
-	TBA
+    - TBA
 
 - Minimum request per seconds load Capacity
-	TBA
+    - TBA
 
 - Minimum concurrent users load capacity
-	TBA
+    - TBA
 
 ------------------------------------------------------
 
