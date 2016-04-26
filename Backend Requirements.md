@@ -217,23 +217,23 @@ data ANY
 
 The server must have a pair of API endpoints to get and set meta data.
 
-#### /meta/set **POST
+#### /meta/set *POST*
 Only admin have access to this endpoint.
 
 ##### Parameters:
 
 ##### Headers:
-- api-key **(mandatory)
+- api-key *(mandatory)*
 
 ##### Response Data:
 
-#### /meta/get/:key **GET
+#### /meta/get/:key *GET*
 
 ##### Parameters:
-- key_name **(admin only, except some data that deemed necessary for the frontend)
+- key_name *(admin only, except some data that deemed necessary for the frontend)*
 
 ##### Headers:
-- api-key **(mandatory)
+- api-key *(mandatory)*
 
 ##### Response Data:
 
@@ -247,7 +247,7 @@ How to process and implement are fully given to the server developer for the bes
 
 Next is the example of facebook oauth2 authorization for a Cowmilk server.
 
-#### /oauth/2/facebook/authorization **GET
+#### /oauth/2/facebook/authorization *GET*
 
 ##### Parameters:
 - error_reason
@@ -262,7 +262,7 @@ Then the server must verify this state callback.
 
 After that verify the code to facebook.
 
-#### /oauth/2/facebook/token **POST
+#### /oauth/2/facebook/token *POST*
 
 ##### Parameters:
 - access_token
@@ -282,6 +282,6 @@ Then generate a session with `user_id`, `access_token`, and `role` in it before 
 
 A Cowmilk server must support [GraphQL](https://facebook.github.io/graphql) for both fetching and upserting data.
 
-##### /data **GET
+##### /data *GET*
 
-##### /data **POST
+##### /data *POST*
