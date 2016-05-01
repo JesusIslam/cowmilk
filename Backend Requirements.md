@@ -142,13 +142,13 @@ The format is `PROPERTY_NAME PROPERTY_TYPE(MAX_MIN_OR_POSSIBLE_VALUES)`.
 ## User
 
 ```
-name string(256)
-username string(128)
-password string(50)
-email string(128)
-description string(1000)
-tagline string(256)
-profile_picture string(1024)
+name
+username
+password
+email
+description
+tagline
+profile_picture
 role enum(admin,user)
 status enum(suspended,active)
 ```
@@ -156,49 +156,65 @@ status enum(suspended,active)
 ## Collection
 
 ```
-user_id ObjectId
-name string(1024)
-tags []string(256)
+user_id
+collection_id
+name
+tags
 type enum(novel,comic)
-commentable bool
+commentable
 ```
 
 ## Node
 
 ```
-collection_id ObjectId
-name string(1024)
-file_url string(1024)
+collection_id
+name
+file_url
 file_type enum(pdf,image)
-content string(16384)
-commentable bool
+content
+commentable
+```
+
+## Like
+
+```
+user_id
+target_id
+target_type enum(comments,collections)
+```
+
+## Follow
+
+```
+target_user_id
+owner_user_id
 ```
 
 ## Comment
 
 ```
-user_id ObjectId
-target_id ObjectId
-target_type enum(album,node)
-content string(2048)
+user_id
+target_id
+target_type enum(collections,nodes,comments)
+content
 media {
-	url string(1024)
-	title string(1024)
-	description string(2048)
-	images []string(1024)
+	url
+	title
+	description
+	images
 	type enum(video,images,opengraph)
-	og_provider_display string(1024)
+	og_provider_display
 }
 ```
 
 ## Client
 
 ```
-user_id ObjectId
-name string(256)
-logo string(1024)
-description string(1024)
-api_key string(32)
+user_id
+name
+logo
+description
+secret
 status enum(suspended,active)
 ```
 
@@ -237,7 +253,7 @@ Only admin have access to this endpoint.
 
 ##### Response Data:
 
-## Oauth2
+## Oauth
 
 The server should support login via third party services, like facebook, twitter, etc. 
 The convention for the routes must be `/oauth/VERSION/VENDOR/authorization` to receive authorization code,
